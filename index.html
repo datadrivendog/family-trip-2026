@@ -3,805 +3,525 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Family Visit Itinerary — Rockville, MD · June 4–11, 2026</title>
+<title>Family Visit — Rockville, MD · June 4–11, 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,700;1,300;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --cream: #FAF7F2;
-    --warm-white: #FFFEF9;
-    --ink: #1A1612;
-    --ink-muted: #5A5450;
-    --ink-faint: #9A9390;
-    --rule: #E8E2D9;
-    --accent: #C4622D;
-    --accent-light: #F5E8DF;
-    --local-bg: #EBF5EC; --local-ink: #2D6B35;
-    --balt-bg: #E8F0FB; --balt-ink: #1A4E8C;
-    --fred-bg: #FBF0E3; --fred-ink: #8C5A1A;
-    --nova-bg: #F5E8F0; --nova-ink: #7A2D64;
-    --selected-bg: #FEF8F4;
-    --selected-border: #C4622D;
-    --toddler-bg: #E6F5E9; --toddler-ink: #2E7D38;
-    --free-bg: #EDF7ED; --free-ink: #2A6B30;
-    --special-bg: #FEF3CD; --special-ink: #8A6000;
-    --radius: 10px;
-    --shadow: 0 2px 12px rgba(26,22,18,0.07);
-    --shadow-hover: 0 4px 20px rgba(26,22,18,0.12);
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
-    color: var(--ink);
-    font-size: 14px;
-    line-height: 1.6;
-    min-height: 100vh;
-  }
-
-  /* ── Page Shell ── */
-  .page-wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px 60px; }
-
-  /* ── Header ── */
-  .site-header {
-    background: var(--warm-white);
-    border-bottom: 1px solid var(--rule);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    padding: 0 24px;
-  }
-  .header-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 0;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  .header-left h1 {
-    font-family: 'Fraunces', serif;
-    font-size: 20px;
-    font-weight: 500;
-    letter-spacing: -0.3px;
-    color: var(--ink);
-  }
-  .header-left p {
-    font-size: 12px;
-    color: var(--ink-muted);
-    margin-top: 2px;
-  }
-  .header-right { display: flex; gap: 10px; align-items: center; }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
-    cursor: pointer;
-    border: 1.5px solid transparent;
-    transition: all 0.15s;
-    text-decoration: none;
-  }
-  .btn-outline {
-    background: transparent;
-    border-color: var(--rule);
-    color: var(--ink-muted);
-  }
-  .btn-outline:hover { border-color: var(--ink-muted); color: var(--ink); }
-  .btn-primary {
-    background: var(--accent);
-    color: #fff;
-    border-color: var(--accent);
-  }
-  .btn-primary:hover { background: #a84f22; border-color: #a84f22; }
-
-  /* ── Hero strip ── */
-  .hero {
-    background: var(--ink);
-    color: var(--cream);
-    border-radius: var(--radius);
-    padding: 36px 40px;
-    margin: 28px 0 24px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 80% 50%, rgba(196,98,45,0.25) 0%, transparent 60%);
-  }
-  .hero-content { position: relative; z-index: 1; }
-  .hero h2 {
-    font-family: 'Fraunces', serif;
-    font-size: 32px;
-    font-weight: 300;
-    letter-spacing: -0.5px;
-    line-height: 1.2;
-    color: #FAF7F2;
-    margin-bottom: 10px;
-  }
-  .hero h2 em { font-style: italic; color: #F0A070; }
-  .hero-meta { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 12px; }
-  .hero-pill {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    color: rgba(250,247,242,0.75);
-    background: rgba(250,247,242,0.1);
-    padding: 4px 12px;
-    border-radius: 20px;
-    border: 1px solid rgba(250,247,242,0.15);
-  }
-
-  /* ── Legend + Filter ── */
-  .controls { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 24px; }
-  .legend { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
-  .leg {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 11px;
-    color: var(--ink-muted);
-    white-space: nowrap;
-  }
-  .leg-dot { width: 8px; height: 8px; border-radius: 50%; }
-
-  .filter-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; align-items: center; }
-  .filter-label { font-size: 12px; color: var(--ink-faint); font-weight: 500; }
-  .ftab {
-    padding: 5px 14px;
-    border-radius: 20px;
-    border: 1px solid var(--rule);
-    background: var(--warm-white);
-    font-size: 12px;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
-    color: var(--ink-muted);
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-  .ftab:hover { border-color: var(--ink-muted); color: var(--ink); }
-  .ftab.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
-
-  /* ── Day Sections ── */
-  .day-section { margin-bottom: 36px; }
-
-  .day-header {
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1.5px solid var(--ink);
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-  }
-  .day-name {
-    font-family: 'Fraunces', serif;
-    font-size: 22px;
-    font-weight: 500;
-    letter-spacing: -0.3px;
-  }
-  .day-date { font-size: 13px; color: var(--ink-muted); }
-  .special-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 11px;
-    font-weight: 500;
-    background: var(--special-bg);
-    color: var(--special-ink);
-    padding: 3px 10px;
-    border-radius: 20px;
-    border: 1px solid rgba(138,96,0,0.15);
-  }
-
-  /* ── Time Slots ── */
-  .slot { margin-bottom: 16px; }
-  .slot-label {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    margin-bottom: 8px;
-  }
-  .options-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-    gap: 10px;
-  }
-
-  /* ── Option Cards ── */
-  .opt-card {
-    background: var(--warm-white);
-    border: 1px solid var(--rule);
-    border-radius: var(--radius);
-    padding: 14px 16px;
-    cursor: pointer;
-    transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
-    position: relative;
-  }
-  .opt-card:hover { border-color: #C8BFB4; box-shadow: var(--shadow-hover); }
-  .opt-card.selected {
-    border: 1.5px solid var(--selected-border);
-    background: var(--selected-bg);
-    box-shadow: var(--shadow);
-  }
-  .opt-card .check-icon {
-    position: absolute;
-    top: 10px; right: 12px;
-    width: 18px; height: 18px;
-    border-radius: 50%;
-    background: var(--accent);
-    display: none;
-    align-items: center;
-    justify-content: center;
-  }
-  .opt-card.selected .check-icon { display: flex; }
-  .check-icon svg { width: 10px; height: 10px; stroke: #fff; stroke-width: 2.5; fill: none; }
-
-  .opt-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 7px; align-items: center; }
-  .rtag {
-    font-size: 10px;
-    font-weight: 500;
-    padding: 2px 8px;
-    border-radius: 10px;
-  }
-  .r-local { background: var(--local-bg); color: var(--local-ink); }
-  .r-balt  { background: var(--balt-bg);  color: var(--balt-ink);  }
-  .r-fred  { background: var(--fred-bg);  color: var(--fred-ink);  }
-  .r-nova  { background: var(--nova-bg);  color: var(--nova-ink);  }
-
-  .type-tag {
-    font-size: 10px;
-    color: var(--ink-faint);
-  }
-  .opt-title {
-    font-family: 'Fraunces', serif;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.3;
-    margin-bottom: 5px;
-    color: var(--ink);
-    padding-right: 22px;
-  }
-  .opt-card.selected .opt-title { color: var(--accent); }
-  .opt-note { font-size: 12px; color: var(--ink-muted); line-height: 1.5; margin-bottom: 8px; }
-
-  .opt-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 4px;
-    padding-top: 8px;
-    border-top: 1px solid var(--rule);
-  }
-  .cost-chip {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--ink);
-  }
-  .cost-free { color: var(--free-ink); }
-  .drive-chip { font-size: 11px; color: var(--ink-faint); }
-  .toddler-chip {
-    font-size: 10px;
-    font-weight: 500;
-    background: var(--toddler-bg);
-    color: var(--toddler-ink);
-    padding: 2px 7px;
-    border-radius: 10px;
-  }
-
-  /* ── Summary Panel ── */
-  .summary-wrap {
-    position: sticky;
-    bottom: 0;
-    background: var(--warm-white);
-    border-top: 1px solid var(--rule);
-    padding: 0 24px;
-    z-index: 90;
-    box-shadow: 0 -4px 24px rgba(26,22,18,0.08);
-  }
-  .summary-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 14px 0;
-    flex-wrap: wrap;
-  }
-  .summary-left { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-  .summary-count {
-    font-size: 13px;
-    color: var(--ink-muted);
-  }
-  .summary-count strong { color: var(--ink); font-weight: 500; }
-  .total-display {
-    font-family: 'Fraunces', serif;
-    font-size: 22px;
-    font-weight: 500;
-    color: var(--ink);
-  }
-  .total-label { font-size: 11px; color: var(--ink-faint); display: block; }
-
-  /* ── Full Summary Modal ── */
-  .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(26,22,18,0.6);
-    z-index: 200;
-    display: none;
-    align-items: flex-end;
-    justify-content: center;
-    padding: 24px;
-  }
-  .modal-overlay.open { display: flex; }
-  .modal {
-    background: var(--warm-white);
-    border-radius: 16px 16px 0 0;
-    width: 100%;
-    max-width: 680px;
-    max-height: 80vh;
-    overflow-y: auto;
-    padding: 28px 32px 32px;
-  }
-  .modal-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  .modal-header h2 {
-    font-family: 'Fraunces', serif;
-    font-size: 22px;
-    font-weight: 500;
-  }
-  .modal-close {
-    width: 32px; height: 32px;
-    border-radius: 50%;
-    border: 1px solid var(--rule);
-    background: transparent;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    color: var(--ink-muted);
-    font-family: 'DM Sans', sans-serif;
-  }
-  .modal-close:hover { background: var(--cream); }
-
-  .agenda-day { margin-bottom: 20px; }
-  .agenda-day-label {
-    font-family: 'Fraunces', serif;
-    font-size: 16px;
-    font-weight: 500;
-    border-bottom: 1px solid var(--rule);
-    padding-bottom: 6px;
-    margin-bottom: 10px;
-  }
-  .agenda-item {
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    padding: 8px 0;
-    border-bottom: 1px solid var(--rule);
-  }
-  .agenda-item:last-child { border-bottom: none; }
-  .agenda-rtag {
-    flex-shrink: 0;
-    font-size: 10px;
-    font-weight: 500;
-    padding: 2px 7px;
-    border-radius: 10px;
-    margin-top: 2px;
-  }
-  .agenda-title { font-size: 13px; font-weight: 500; flex: 1; }
-  .agenda-cost { font-size: 12px; color: var(--ink-muted); white-space: nowrap; }
-
-  .agenda-total {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 16px;
-    padding: 14px 16px;
-    background: var(--cream);
-    border-radius: var(--radius);
-  }
-  .agenda-total span { font-size: 13px; color: var(--ink-muted); }
-  .agenda-total strong {
-    font-family: 'Fraunces', serif;
-    font-size: 22px;
-    font-weight: 500;
-  }
-  .modal-actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
-
-  /* ── Print ── */
-  @media print {
-    .site-header, .filter-row, .controls, .opt-card:not(.selected),
-    .summary-wrap, .modal-overlay, .btn, .hero { display: none !important; }
-    body { background: #fff; }
-    .page-wrap { padding: 0; }
-    .opt-card.selected { border: 1px solid #ccc !important; break-inside: avoid; }
-    .day-section { break-inside: avoid; }
-  }
-
-  /* ── Empty state ── */
-  .empty-msg {
-    font-size: 13px;
-    color: var(--ink-faint);
-    font-style: italic;
-    padding: 8px 0;
-  }
+:root{--cream:#FAF7F2;--warm:#FFFEF9;--ink:#1A1612;--muted:#5A5450;--faint:#9A9390;--rule:#E8E2D9;--accent:#C4622D;--accent-lt:#F5E8DF;--local-bg:#EBF5EC;--local-ink:#2D6B35;--balt-bg:#E8F0FB;--balt-ink:#1A4E8C;--fred-bg:#FBF0E3;--fred-ink:#8C5A1A;--nova-bg:#F5E8F0;--nova-ink:#7A2D64;--party-bg:#FEF3E2;--party-ink:#9A4700;--sel-bg:#FEF8F4;--sel-bdr:#C4622D;--radius:10px;--sh:0 2px 12px rgba(26,22,18,.07);--sh2:0 6px 24px rgba(26,22,18,.13)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);font-size:14px;line-height:1.6;min-height:100vh}
+.pw{max-width:1120px;margin:0 auto;padding:0 22px 90px}
+.hdr{background:var(--warm);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:120;padding:0 22px}
+.hdr-in{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px;flex-wrap:wrap}
+.hdr h1{font-family:'Fraunces',serif;font-size:19px;font-weight:500;letter-spacing:-.3px}
+.hdr p{font-size:11px;color:var(--muted);margin-top:1px}
+.hdr-r{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:6px;font-size:12px;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;border:1.5px solid transparent;transition:all .15s;white-space:nowrap}
+.btn-o{background:transparent;border-color:var(--rule);color:var(--muted)}.btn-o:hover{border-color:var(--muted);color:var(--ink)}
+.btn-p{background:var(--accent);color:#fff;border-color:var(--accent)}.btn-p:hover{background:#a84f22}
+.hero{background:var(--ink);color:var(--cream);border-radius:var(--radius);padding:32px 36px;margin:24px 0 18px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 85% 50%,rgba(196,98,45,.28) 0%,transparent 60%)}
+.hero-c{position:relative;z-index:1}
+.hero h2{font-family:'Fraunces',serif;font-size:28px;font-weight:300;letter-spacing:-.4px;line-height:1.2;color:#FAF7F2;margin-bottom:8px}
+.hero h2 em{font-style:italic;color:#F0A070}
+.hero-pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.pill{font-size:11px;color:rgba(250,247,242,.7);background:rgba(250,247,242,.08);padding:3px 10px;border-radius:16px;border:1px solid rgba(250,247,242,.12)}
+.fb{background:#EBF3FF;border:1px solid #C3D8F5;border-radius:var(--radius);padding:14px 20px;margin-bottom:18px}
+.fb-t{font-weight:500;font-size:13px;color:#1A4E8C;margin-bottom:10px}
+.fb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.fb-i{background:#fff;border-radius:8px;padding:10px 14px;border:1px solid #D0E4F7}
+.fb-num{font-size:11px;font-weight:500;color:#1A4E8C;margin-bottom:2px}
+.fb-route{font-size:13px;font-weight:500;color:var(--ink)}
+.fb-time{font-size:12px;color:var(--muted);margin-top:2px}
+.fb-dep{font-size:11px;color:#C4622D;margin-top:4px;font-weight:500}
+.leg{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.leg-i{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted)}
+.leg-dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.frow{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;align-items:center}
+.flbl{font-size:11px;color:var(--faint);font-weight:500}
+.ftab{padding:5px 13px;border-radius:20px;border:1px solid var(--rule);background:var(--warm);font-size:12px;font-family:'DM Sans',sans-serif;font-weight:500;color:var(--muted);cursor:pointer;transition:all .15s}
+.ftab:hover{border-color:var(--muted);color:var(--ink)}.ftab.active{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.drag-hint{background:#FFFBF0;border:1px solid #F0E0A0;border-radius:8px;padding:10px 16px;font-size:12px;color:#7A6200;margin-bottom:16px}
+.day-section{margin-bottom:30px;border-radius:var(--radius);border:1px solid var(--rule);background:var(--warm);transition:box-shadow .2s,border-color .2s}
+.day-section.drag-over{box-shadow:0 0 0 2.5px var(--accent);border-color:var(--accent)}
+.party-day{border-color:#D4845A;background:#FFFAF6}
+.day-hdr{display:flex;align-items:baseline;gap:10px;padding:14px 16px 12px;border-bottom:1.5px solid var(--rule);flex-wrap:wrap}
+.party-day .day-hdr{background:linear-gradient(135deg,#FFF3E8 0%,#FFFAF6 100%);border-color:#D4845A}
+.day-name{font-family:'Fraunces',serif;font-size:21px;font-weight:500;letter-spacing:-.3px}
+.day-date{font-size:13px;color:var(--muted)}
+.sbadge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:500;background:#FEF3CD;color:#8A6000;padding:3px 9px;border-radius:16px;border:1px solid rgba(138,96,0,.15)}
+.pbadge{background:var(--party-bg);color:var(--party-ink);border-color:rgba(154,71,0,.2);font-size:12px}
+.lbar{background:#EBF3FF;border-left:3px solid #4A90D9;padding:8px 14px;margin:0 16px 4px;font-size:12px;color:#1A4E8C;border-radius:0 6px 6px 0}
+.party-sec{background:#FFFAF6;border:1px solid #EDCFB4;border-radius:8px;padding:14px 16px;margin:12px 16px}
+.party-sec h3{font-family:'Fraunces',serif;font-size:16px;font-weight:500;color:var(--party-ink);margin-bottom:8px}
+.pi{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid #EDD9C5;font-size:12px;color:var(--muted)}
+.pi:last-child{border:none}
+.pi-ico{font-size:16px;flex-shrink:0;margin-top:1px}
+.pi-txt strong{display:block;font-size:13px;font-weight:500;color:var(--ink)}
+.slot-wrap{padding:12px 16px}
+.slot{margin-bottom:14px}
+.slot-lbl{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:7px;display:flex;align-items:center;gap:8px}
+.mtag{font-size:9px;background:#E8E2D9;color:var(--muted);padding:1px 6px;border-radius:8px;letter-spacing:0;text-transform:none;font-weight:500}
+.opts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:9px}
+.opt-card{background:#fff;border:1px solid var(--rule);border-radius:var(--radius);padding:13px 15px;cursor:pointer;transition:border-color .15s,box-shadow .15s,background .15s;position:relative;user-select:none}
+.opt-card[draggable=true]{cursor:grab}.opt-card[draggable=true]:active{cursor:grabbing}
+.opt-card:hover{border-color:#C8BFB4;box-shadow:var(--sh2)}
+.opt-card.selected{border:1.5px solid var(--sel-bdr);background:var(--sel-bg)}
+.opt-card.selected .opt-title{color:var(--accent)}
+.opt-card.dragging{opacity:.35}
+.chk{position:absolute;top:9px;right:11px;width:17px;height:17px;border-radius:50%;background:var(--accent);display:none;align-items:center;justify-content:center}
+.opt-card.selected .chk{display:flex}
+.chk svg{width:9px;height:9px;stroke:#fff;stroke-width:2.5;fill:none}
+.dh{position:absolute;top:9px;right:34px;font-size:13px;color:var(--faint);opacity:.45;cursor:grab;line-height:1;font-weight:bold}
+.rtag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:9px}
+.r-local{background:var(--local-bg);color:var(--local-ink)}.r-balt{background:var(--balt-bg);color:var(--balt-ink)}.r-fred{background:var(--fred-bg);color:var(--fred-ink)}.r-nova{background:var(--nova-bg);color:var(--nova-ink)}.r-party{background:var(--party-bg);color:var(--party-ink)}
+.opt-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:5px;align-items:center}
+.opt-type{font-size:10px;color:var(--faint)}
+.opt-title{font-family:'Fraunces',serif;font-size:14px;font-weight:500;line-height:1.3;margin-bottom:4px;padding-right:50px}
+.opt-note{font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:7px}
+.opt-ft{display:flex;align-items:center;flex-wrap:wrap;gap:6px;padding-top:7px;border-top:1px solid var(--rule)}
+.cost{font-size:12px;font-weight:500}.cost-free{color:#2A6B30}
+.drive{font-size:11px;color:var(--faint)}
+.ttag{font-size:10px;font-weight:500;background:#E6F5E9;color:#2E7D38;padding:1px 6px;border-radius:8px}
+.sum-wrap{position:fixed;bottom:0;left:0;right:0;background:var(--warm);border-top:1px solid var(--rule);padding:0 22px;z-index:110;box-shadow:0 -4px 20px rgba(26,22,18,.09)}
+.sum-in{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px;flex-wrap:wrap}
+.sum-l{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.sum-cnt{font-size:13px;color:var(--muted)}.sum-cnt strong{color:var(--ink);font-weight:500}
+.tlbl{font-size:10px;color:var(--faint);display:block}
+.tamt{font-family:'Fraunces',serif;font-size:22px;font-weight:500}
+.overlay{position:fixed;inset:0;background:rgba(26,22,18,.6);z-index:200;display:none;align-items:flex-end;justify-content:center;padding:20px}
+.overlay.open{display:flex}
+.modal{background:var(--warm);border-radius:16px 16px 0 0;width:100%;max-width:660px;max-height:82vh;overflow-y:auto;padding:26px 30px 30px}
+.mhdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.mhdr h2{font-family:'Fraunces',serif;font-size:21px;font-weight:500}
+.mclose{width:30px;height:30px;border-radius:50%;border:1px solid var(--rule);background:transparent;cursor:pointer;font-size:17px;color:var(--muted);display:flex;align-items:center;justify-content:center}
+.mclose:hover{background:var(--cream)}
+.ag-day{margin-bottom:18px}
+.ag-dlbl{font-family:'Fraunces',serif;font-size:15px;font-weight:500;border-bottom:1px solid var(--rule);padding-bottom:5px;margin-bottom:8px}
+.ag-item{display:flex;gap:8px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--rule);font-size:12px}
+.ag-item:last-child{border:none}
+.ag-title{flex:1;font-weight:500;font-size:13px}
+.ag-cost{white-space:nowrap;color:var(--muted)}
+.ag-tot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding:12px 14px;background:var(--cream);border-radius:var(--radius)}
+.ag-tot span{font-size:12px;color:var(--muted)}
+.ag-tot strong{font-family:'Fraunces',serif;font-size:21px;font-weight:500}
+.macts{display:flex;gap:9px;margin-top:14px;flex-wrap:wrap}
+.emsg{font-size:13px;color:var(--faint);font-style:italic;padding:6px 0}
+.custom-slot{padding:10px 16px 14px}
+.custom-card{background:#FAFAF7;border:1.5px dashed var(--rule);border-radius:var(--radius);padding:14px 16px}
+.custom-card-lbl{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.custom-card-lbl span{font-size:9px;background:#E8E2D9;color:var(--muted);padding:1px 6px;border-radius:8px;letter-spacing:0;text-transform:none;font-weight:500}
+.custom-fields{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:start}
+.custom-fields input[type=text]{font-family:'DM Sans',sans-serif;font-size:13px;padding:8px 10px;border:1px solid var(--rule);border-radius:6px;background:#fff;color:var(--ink);outline:none;width:100%}
+.custom-fields input[type=text]:focus{border-color:var(--accent)}
+.custom-fields input[type=number]{font-family:'DM Sans',sans-serif;font-size:13px;padding:8px 10px;border:1px solid var(--rule);border-radius:6px;background:#fff;color:var(--ink);outline:none;width:90px}
+.custom-fields input[type=number]:focus{border-color:var(--accent)}
+.custom-add-btn{padding:8px 14px;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:12px;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;white-space:nowrap}
+.custom-add-btn:hover{background:#a84f22}
+.custom-added{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.custom-item{display:flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--sel-bdr);border-radius:8px;padding:6px 10px;font-size:12px}
+.custom-item.selected-custom{background:var(--sel-bg)}
+.custom-item-title{font-weight:500;color:var(--ink);cursor:pointer}
+.custom-item-cost{color:var(--muted)}
+.custom-item-del{background:none;border:none;color:var(--faint);cursor:pointer;font-size:14px;line-height:1;padding:0 2px}
+.custom-item-del:hover{color:#C4622D}
+@media print{.hdr,.frow,.leg,.drag-hint,.sum-wrap,.overlay,.btn,.ftab{display:none!important}.opt-card:not(.selected){display:none!important}body{background:#fff}.pw{padding:0}}
 </style>
 </head>
 <body>
-
-<!-- STICKY HEADER -->
-<header class="site-header">
-  <div class="header-inner">
-    <div class="header-left">
-      <h1>Family Visit Itinerary</h1>
-      <p>Rockville, MD &nbsp;·&nbsp; June 4–11, 2026 &nbsp;·&nbsp; 6 adults + 1 toddler (age 2)</p>
-    </div>
-    <div class="header-right">
-      <button class="btn btn-outline" onclick="clearAll()">Clear all</button>
-      <button class="btn btn-outline" onclick="openModal()">View agenda</button>
-      <button class="btn btn-primary" onclick="window.print()">&#8601; Print / save PDF</button>
+<header class="hdr">
+  <div class="hdr-in">
+    <div><h1>Family Visit Itinerary</h1><p>Rockville, MD &nbsp;·&nbsp; June 4–11, 2026 &nbsp;·&nbsp; 6 adults + 1 toddler (age 2)</p></div>
+    <div class="hdr-r">
+      <button class="btn btn-o" onclick="clearAll()">Clear all</button>
+      <button class="btn btn-o" onclick="openModal()">View agenda</button>
+      <button class="btn btn-p" onclick="window.print()">↓ Print / PDF</button>
     </div>
   </div>
 </header>
-
-<div class="page-wrap">
-
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-content">
-      <h2>Plan your <em>perfect</em> week<br>in the DMV</h2>
-      <div class="hero-meta">
-        <div class="hero-pill">📍 Home base: Rockville, MD</div>
-        <div class="hero-pill">🗓 June 4–11, 2026</div>
-        <div class="hero-pill">👨‍👩‍👧 6 adults + 1 toddler</div>
-        <div class="hero-pill">🏙 Day trips to Baltimore, Frederick & NoVA</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- LEGEND + FILTERS -->
-  <div class="legend" style="margin-bottom:12px">
-    <div class="leg"><span class="leg-dot" style="background:#2D6B35"></span> Local / MoCo</div>
-    <div class="leg"><span class="leg-dot" style="background:#1A4E8C"></span> Baltimore (~45 min)</div>
-    <div class="leg"><span class="leg-dot" style="background:#8C5A1A"></span> Frederick (~45 min)</div>
-    <div class="leg"><span class="leg-dot" style="background:#7A2D64"></span> Northern Virginia (~30–50 min)</div>
-    <div class="leg"><span>⭐ = Special event</span></div>
-    <div class="leg"><span>🧒 = Especially toddler-friendly</span></div>
-  </div>
-
-  <div class="filter-row">
-    <span class="filter-label">Filter by region:</span>
-    <button class="ftab active" onclick="setFilter('all',this)">All regions</button>
-    <button class="ftab" onclick="setFilter('local',this)">Local only</button>
-    <button class="ftab" onclick="setFilter('balt',this)">Baltimore</button>
-    <button class="ftab" onclick="setFilter('fred',this)">Frederick</button>
-    <button class="ftab" onclick="setFilter('nova',this)">Northern VA</button>
-  </div>
-
-  <!-- ITINERARY CONTAINER -->
-  <div id="itinerary"></div>
-
-</div><!-- /page-wrap -->
-
-<!-- STICKY SUMMARY BAR -->
-<div class="summary-wrap">
-  <div class="summary-inner">
-    <div class="summary-left">
-      <div class="summary-count"><strong id="sel-count">0</strong> activities selected</div>
-      <div>
-        <span class="total-label">Estimated total</span>
-        <div class="total-display" id="total-display">$0</div>
-      </div>
-    </div>
-    <button class="btn btn-primary" onclick="openModal()">View full agenda ›</button>
-  </div>
-</div>
-
-<!-- AGENDA MODAL -->
-<div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
-  <div class="modal" role="dialog" aria-label="Your selected agenda">
-    <div class="modal-header">
-      <h2>Your agenda</h2>
-      <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
-    </div>
-    <div id="modal-body"></div>
-    <div class="modal-actions">
-      <button class="btn btn-primary" onclick="window.print()">Print / save PDF</button>
-      <button class="btn btn-outline" onclick="closeModal()">Back to planning</button>
+<div class="pw">
+<div class="hero">
+  <div class="hero-c">
+    <h2>Plan your <em>perfect</em> week in the DMV</h2>
+    <div class="hero-pills">
+      <span class="pill">📍 Home base: Rockville, MD</span>
+      <span class="pill">📅 June 4–11, 2026</span>
+      <span class="pill">👨‍👩‍👧 6 adults + 1 toddler</span>
+      <span class="pill">🎂 June 6 = Birthday Party Day</span>
+      <span class="pill">✈ 3 flights tracked</span>
     </div>
   </div>
 </div>
-
+<div class="fb">
+  <div class="fb-t">✈ Flight logistics at a glance</div>
+  <div class="fb-grid">
+    <div class="fb-i"><div class="fb-num">UA418 &middot; United &middot; PICKUP</div><div class="fb-route">LAX → IAD (Dulles)</div><div class="fb-time">Arrives Thu Jun 4 &middot; ~7:25 AM</div><div class="fb-dep">🚗 Depart Rockville by 6:30 AM (35 min to IAD)</div></div>
+    <div class="fb-i"><div class="fb-num">UA2276 &middot; United &middot; DROP-OFF</div><div class="fb-route">IAD (Dulles) → LAX</div><div class="fb-time">Departs Mon Jun 8 &middot; ~6:00 PM</div><div class="fb-dep">🚗 Leave Rockville by 3:00 PM (arrive IAD 4:00 PM, 2 hrs early)</div></div>
+    <div class="fb-i"><div class="fb-num">B6 1354 &middot; JetBlue &middot; DROP-OFF</div><div class="fb-route">DCA (Reagan) → BOS</div><div class="fb-time">Departs Thu Jun 11 &middot; ~4:59 PM</div><div class="fb-dep">🚗 Leave Rockville by 2:45 PM (arrive DCA 3:30 PM)</div></div>
+  </div>
+</div>
+<div class="leg">
+  <div class="leg-i"><span class="leg-dot" style="background:#2D6B35"></span>Local/MoCo</div>
+  <div class="leg-i"><span class="leg-dot" style="background:#1A4E8C"></span>Baltimore (~45 min)</div>
+  <div class="leg-i"><span class="leg-dot" style="background:#8C5A1A"></span>Frederick (~45 min)</div>
+  <div class="leg-i"><span class="leg-dot" style="background:#7A2D64"></span>Northern VA (~35–50 min)</div>
+  <div class="leg-i">⭐ = Special event &nbsp; 🧒 = Toddler-friendly &nbsp; ↕ Drag cards to move between days</div>
+</div>
+<div class="frow">
+  <span class="flbl">Filter by region:</span>
+  <button class="ftab active" onclick="setFilter('all',this)">All regions</button>
+  <button class="ftab" onclick="setFilter('local',this)">Local only</button>
+  <button class="ftab" onclick="setFilter('balt',this)">Baltimore</button>
+  <button class="ftab" onclick="setFilter('fred',this)">Frederick</button>
+  <button class="ftab" onclick="setFilter('nova',this)">Northern VA</button>
+</div>
+<div class="drag-hint">↕ <strong>Drag &amp; drop:</strong> Grab any card by the ⠿ handle and drop it onto a different day section to move that activity. Single-select slots will deselect the previous pick when you choose a new one.</div>
+<div id="itin"></div>
+</div>
+<div class="sum-wrap">
+  <div class="sum-in">
+    <div class="sum-l">
+      <div class="sum-cnt"><strong id="sc">0</strong> activities selected</div>
+      <div><span class="tlbl">Estimated total (6 adults + toddler)</span><div class="tamt" id="ta">$0</div></div>
+    </div>
+    <button class="btn btn-p" onclick="openModal()">View agenda &#8250;</button>
+  </div>
+</div>
+<div class="overlay" id="modal" onclick="closeOut(event)">
+  <div class="modal" role="dialog">
+    <div class="mhdr"><h2>Your selected agenda</h2><button class="mclose" onclick="closeModal()">&#215;</button></div>
+    <div id="mbody"></div>
+    <div class="macts">
+      <button class="btn btn-p" onclick="window.print()">Print / Save PDF</button>
+      <button class="btn btn-o" onclick="closeModal()">Back to planning</button>
+    </div>
+  </div>
+</div>
 <script>
-const DAYS = [
-  {
-    label:"Thursday", date:"June 4",
-    special:"⭐ WTMD First Thursdays — FREE concert, Baltimore Canton Waterfront, 5:30pm",
-    slots:[
-      { time:"Morning / Arrival", multi:false, options:[
-        { id:"d1m1",r:"local",title:"Settle in — Rockville Town Square stroll",type:"Outdoor / Free",cost:0,toddler:true,drive:"0 min",note:"Fountains, plazas, café grab. Easy first afternoon. Let everyone orient after travel." },
-        { id:"d1m2",r:"local",title:"Rock Creek Regional Park — Lake Needwood",type:"Outdoor / Nature",cost:0,toddler:true,drive:"15 min",note:"Easy lake walk, picnic areas. Great toddler-friendly leg-stretcher after long drives." }
-      ]},
-      { time:"Evening — choose one", multi:false, options:[
-        { id:"d1e1",r:"balt",title:"⭐ WTMD First Thursdays — Baltimore Canton Waterfront",type:"Free / Outdoor Concert / 5:30–10pm",cost:20,toddler:true,drive:"45 min",note:"Region's largest free outdoor concert. Fantastic Cat headlines. 100+ food & drink vendors along the scenic waterfront. Leave Rockville by 4:30pm. Budget ~$20 total for food. Toddler will love the festive atmosphere." },
-        { id:"d1e2",r:"local",title:"Dinner at 7 Locks Brewing",type:"Brewery / Dinner",cost:210,toddler:true,drive:"5 min",note:"Award-winning 7,200 sq ft warehouse taproom in Rockville. Rotating food trucks. ~$35/adult. Great low-key arrival night." },
-        { id:"d1e3",r:"local",title:"Silver Branch Rockville Beerworks",type:"Brewery / Dinner",cost:180,toddler:true,drive:"5 min",note:"Newest brewery in Rockville, just off East Gude Drive. Full food menu, casual family atmosphere. ~$30/adult." }
-      ]}
-    ]
-  },
-  {
-    label:"Friday", date:"June 5",
-    special:"⭐ Baltimore Waterfront Week begins (June 5–14) — 40+ events",
-    slots:[
-      { time:"Morning", multi:false, options:[
-        { id:"d2m1",r:"local",title:"⭐ Brookside Gardens — Butterfly Experience",type:"Nature / Ticketed — BOOK AHEAD",cost:294,toddler:true,drive:"20 min",note:"MUST BOOK IN ADVANCE online — no walk-up tickets. Hundreds of live butterflies from Americas, Africa & Asia. Runs April–Sept. 6 adults ~$294 (toddler FREE under 2). Magical for little ones." },
-        { id:"d2m2",r:"balt",title:"⭐ Baltimore Waterfront Week — Inner Harbor",type:"Festival / Free",cost:30,toddler:true,drive:"45 min",note:"New 10-day waterfront festival, Day 1. Free live music, kayaking, fitness classes, community events along the harbor. Budget ~$30 for food/drinks at Inner Harbor restaurants." },
-        { id:"d2m3",r:"fred",title:"Downtown Frederick — Carroll Creek Park stroll",type:"Outdoor / Town / Free",cost:40,toddler:true,drive:"45 min",note:"Beautiful 1.5-mile park walk through historic Frederick's downtown. Fountains, public art, lighted sailboats on the water, outdoor dining. Very stroller-friendly. Budget ~$40 for lunch at a patio restaurant." }
-      ]},
-      { time:"Afternoon / Evening", multi:false, options:[
-        { id:"d2e1",r:"balt",title:"National Aquarium — Baltimore Inner Harbor",type:"Attraction / Ticketed",cost:300,toddler:true,drive:"45 min",note:"One of the top 3 aquariums in the US. Touch tanks, sharks, dolphins. 6 adults @ $49.95 = ~$300 (toddler FREE under 4). Book timed entry online. Plan 2–3 hours. Note: no strollers on exhibit route — bring a carrier." },
-        { id:"d2e2",r:"nova",title:"Wolf Trap — Gary Clark Jr. (Sat June 6, 7:30pm)",type:"Concert / Outdoor",cost:360,toddler:false,drive:"35 min",note:"Legendary blues guitarist at the Filene Center. Arrive early to picnic on the lawn. ~$60/adult. Best for adults while toddler stays home for the evening." },
-        { id:"d2e3",r:"local",title:"Rockville Town Square + brewpub dinner",type:"Casual / Local",cost:180,toddler:true,drive:"0 min",note:"Low-key evening if the day trip wears everyone out. Multiple restaurant options with outdoor seating at Town Square." }
-      ]}
-    ]
-  },
-  {
-    label:"Saturday", date:"June 6",
-    special:"⭐ Kölschfest @ Silver Branch + Watershed Fair @ Wheaton + Wolf Trap Gary Clark Jr.",
-    slots:[
-      { time:"Morning", multi:false, options:[
-        { id:"d3m1",r:"local",title:"⭐ Watershed Awareness Fair @ Wheaton Regional Park",type:"Free / Family Event / 11am–3pm",cost:0,toddler:true,drive:"20 min",note:"Free outdoor family event at Wheaton Regional Park. Crafts, games, watershed education activities. Combine with the train & carousel next door. Perfect for toddlers." },
-        { id:"d3m2",r:"local",title:"Wheaton Regional Park — Train & Carousel",type:"Family / Ticketed",cost:42,toddler:true,drive:"20 min",note:"Mini train $4/ride + carousel $4/ride. Under 2 RIDES FREE. 6 adults = ~$42. Weekend hours 9:30am–4:30pm. Brookside Gardens is a short walk away too." },
-        { id:"d3m3",r:"balt",title:"Baltimore Inner Harbor — Waterfront Week Day 2",type:"Festival / Free",cost:25,toddler:true,drive:"45 min",note:"Day 2 of Waterfront Week. Free activities along the harbor including kayaking, fitness classes, and live music. Budget ~$25 for snacks and drinks." }
-      ]},
-      { time:"Afternoon / Evening", multi:false, options:[
-        { id:"d3a1",r:"local",title:"⭐ Silver Branch Beerworks — Kölschfest (June 6)",type:"Special Event / Brewery",cost:180,toddler:true,drive:"5 min",note:"German-style Kölsch festival at Rockville's newest brewery. Traditional stange pours, German food, great vibes. Family-friendly taproom. ~$30/adult." },
-        { id:"d3a2",r:"nova",title:"⭐ Wolf Trap — Gary Clark Jr. (7:30pm)",type:"Concert / Outdoor / Ticketed",cost:360,toddler:false,drive:"35 min",note:"Picnic on the famous Filene Center lawn, then blues concert under the stars. Magical summer evening. ~$60/adult. Better as an adult outing while toddler naps/stays in." },
-        { id:"d3a3",r:"fred",title:"Downtown Frederick dinner + Carroll Creek evening",type:"Dining / Outdoor",cost:240,toddler:true,drive:"45 min",note:"Beautiful summer evening along the creek promenade. Outdoor dining with restaurants and breweries lining the water. ~$40/adult." }
-      ]}
-    ]
-  },
-  {
-    label:"Sunday", date:"June 7",
-    special:"⭐ Rockville Pride 2–5pm @ Town Square + Strawberry Fest in Frederick 11am–2pm",
-    slots:[
-      { time:"Morning", multi:false, options:[
-        { id:"d4m1",r:"fred",title:"⭐ Strawberry Fest — Buckeystown, Frederick (11am–2pm)",type:"Festival / Family",cost:20,toddler:true,drive:"50 min",note:"Strawberry season! Live music, games, crafts, outdoor fun at Buckeystown United Methodist Church. Perfect toddler outing. Budget ~$20 for strawberries and food." },
-        { id:"d4m2",r:"local",title:"Seneca Creek State Park — lake trails + picnic",type:"Outdoor / Nature",cost:0,toddler:true,drive:"15 min",note:"Flat lakeside trails, gorgeous in June. Stroller-friendly. Bring a picnic. Free and peaceful." },
-        { id:"d4m3",r:"nova",title:"Great Falls National Park (VA side)",type:"Outdoor / Nature / Scenic",cost:60,toddler:true,drive:"30 min",note:"Stunning Potomac gorge views. $20/car entry (covers the whole group). Stroller-friendly overlook trails. Spectacular scenery — a DMV must-see." }
-      ]},
-      { time:"Afternoon", multi:false, options:[
-        { id:"d4a1",r:"local",title:"⭐ Rockville Pride — 10th Anniversary (2–5pm)",type:"Free / Community Event",cost:0,toddler:true,drive:"0 min",note:"10th anniversary celebration at Rockville Town Square. Family activities, live performances, inclusive community celebration. Completely free." },
-        { id:"d4a2",r:"balt",title:"Port Discovery Children's Museum — Baltimore",type:"Museum / Kids / Ticketed",cost:150,toddler:true,drive:"45 min",note:"Baltimore's premier children's museum. 3 floors of hands-on exhibits, toddler zones, play kitchen, climbing structures. ~$25/adult, toddler (under 1) free. Great rainy backup too." },
-        { id:"d4a3",r:"balt",title:"Baltimore Inner Harbor + Fells Point waterfront walk",type:"Free / Outdoor",cost:40,toddler:true,drive:"45 min",note:"Free Inner Harbor promenade, historic Fells Point cobblestone streets. Great for walking with a toddler. Budget ~$40 for snacks and drinks at waterfront spots." }
-      ]}
-    ]
-  },
-  {
-    label:"Monday", date:"June 8",
-    slots:[
-      { time:"Morning", multi:false, options:[
-        { id:"d5m1",r:"local",title:"⭐ Brookside Gardens — Butterfly Experience (if not Fri)",type:"Nature / Ticketed — BOOK AHEAD",cost:294,toddler:true,drive:"20 min",note:"If you didn't go Friday, do it today. Book online first — no walk-up. 6 adults ~$294, toddler FREE. Follow with a free stroll through the 50-acre gardens." },
-        { id:"d5m2",r:"nova",title:"Udvar-Hazy Center — Air & Space Museum (Chantilly VA)",type:"Museum / Free",cost:30,toddler:true,drive:"40 min",note:"Smithsonian's giant air & space annex — Space Shuttle Discovery, SR-71 Blackbird, hundreds of aircraft. FREE entry. Budget ~$30 for food + parking (~$20). Toddler will be amazed by the scale." },
-        { id:"d5m3",r:"fred",title:"Catoctin Mountain Park — family hike near Frederick",type:"Outdoor / Hiking",cost:0,toddler:true,drive:"60 min",note:"Shaded mountain trails near Thurmont/Frederick. Easy Blue Blazes trail loop, scenic waterfall. Free. Best with a baby carrier for the toddler on rocky sections." }
-      ]},
-      { time:"Afternoon", multi:false, options:[
-        { id:"d5a1",r:"local",title:"Kids Ground indoor play (Rockville)",type:"Indoor / Toddler Play",cost:80,toddler:true,drive:"5 min",note:"5,000 sq ft dedicated play space for toddlers through age 8. Ball pit, play kitchen, climbing dome, arts & crafts. One parent admission included with child." },
-        { id:"d5a2",r:"nova",title:"Reston Town Center stroll + lunch",type:"Outdoor / Dining",cost:180,toddler:true,drive:"30 min",note:"Walkable outdoor town center. Good mix of restaurants. Fountain plaza area great for toddler roaming. ~$30/adult for lunch." },
-        { id:"d5a3",r:"balt",title:"Maryland Zoo in Baltimore",type:"Zoo / Outdoor",cost:198,toddler:true,drive:"45 min",note:"150-year-old zoo celebrating its anniversary year. 1,500+ animals, African Journey exhibit, new red panda habitat. ~$33/adult. Children under 2 FREE." }
-      ]}
-    ]
-  },
-  {
-    label:"Tuesday", date:"June 9",
-    special:"⭐ Brookside Gardens Free Twilight Concert — 6:30–8pm (free!)",
-    slots:[
-      { time:"Morning / Day", multi:false, options:[
-        { id:"d6m1",r:"balt",title:"National Aquarium — Baltimore (if not yet visited)",type:"Attraction / Ticketed",cost:300,toddler:true,drive:"45 min",note:"Best visited on a weekday — less crowded. 6 adults ~$300, toddler FREE. Book timed entry online. Plan 2–3 hours. Touch tanks, sharks, touch jellyfish pools." },
-        { id:"d6m2",r:"fred",title:"Frederick Keys minor league baseball game",type:"Sports / Family / Outdoor",cost:90,toddler:true,drive:"45 min",note:"Frederick Keys at FNB Field. Low-key minor league ball — perfect for a toddler's attention span. Great family atmosphere with local food. ~$15/adult, toddlers free." },
-        { id:"d6m3",r:"local",title:"Sugarloaf Mountain hike",type:"Outdoor / Hiking",cost:0,toddler:true,drive:"35 min",note:"Lower loop trail is shaded, easy, and doable with a toddler in a carrier. Beautiful June greenery. Free parking. A MoCo treasure." }
-      ]},
-      { time:"Evening — Free Concert!", multi:false, options:[
-        { id:"d6e1",r:"local",title:"⭐ Brookside Gardens Summer Twilight Concert (6:30–8pm)",type:"Free / Music / Outdoor",cost:30,toddler:true,drive:"20 min",note:"Free weekly Tuesday concert in beautiful 50-acre gardens. Bring blankets and a picnic (permitted on concert nights only). Food trucks on site. Budget ~$30 for food. Magical at dusk." },
-        { id:"d6e2",r:"local",title:"Rockville Town Square — outdoor dinner",type:"Casual / Local",cost:180,toddler:true,drive:"0 min",note:"Multiple restaurants with outdoor patios. Good fallback if the group is tired after a day trip. Toddler-friendly options throughout." }
-      ]}
-    ]
-  },
-  {
-    label:"Wednesday", date:"June 10",
-    slots:[
-      { time:"Full Day — choose your adventure", multi:false, options:[
-        { id:"d7d1",r:"balt",title:"Baltimore full day — Aquarium + Inner Harbor + Fells Point",type:"Full Day / City",cost:360,toddler:true,drive:"45 min",note:"Anchor with National Aquarium (~$300 for 6 adults), then walk the Inner Harbor promenade, grab lunch at Fells Point's cobblestone waterfront. Full and satisfying day. Budget $60 additional for meals." },
-        { id:"d7d2",r:"nova",title:"Old Town Alexandria + Potomac waterfront",type:"Outdoor / History",cost:100,toddler:true,drive:"40 min",note:"Charming historic waterfront city. King Street pedestrian promenade, free Torpedo Factory Art Center, waterfront park. Toddler-friendly paced strolling. Budget ~$100 for lunch and snacks." },
-        { id:"d7d3",r:"fred",title:"Downtown Frederick full day — history, dining, Carroll Creek",type:"Town / Outdoor",cost:150,toddler:true,drive:"45 min",note:"Frederick's charming historic district. Market Street boutiques, Carroll Creek Linear Park stroll, outdoor patio lunch. Beautiful toddler energy outlet. Budget ~$150 for meals and shopping." }
-      ]},
-      { time:"Evening", multi:false, options:[
-        { id:"d7e1",r:"local",title:"Brookeville Beer Farm — farm brewery dinner",type:"Brewery / Outdoor / Farm",cost:210,toddler:true,drive:"30 min",note:"Working farm brewery 30 min from Rockville. Large outdoor area with picnic tables, kids welcome, leashed pets welcome. Pizza + apps. Flight of 4 beers $16. ~$35/adult. Recognized by Bethesda Magazine." },
-        { id:"d7e2",r:"local",title:"⭐ Silo Falls restaurant — destination dinner",type:"Upscale / Scenic",cost:300,toddler:false,drive:"30 min",note:"Destination restaurant along the C&O Canal scenic byway. Reserve well in advance. ~$50/adult. Visit Montgomery recommends it as one of MoCo's standout dining destinations. Better without the toddler." },
-        { id:"d7e3",r:"local",title:"7 Locks Brewing + food trucks",type:"Brewery / Casual",cost:210,toddler:true,drive:"5 min",note:"Reliable favorite after a long day trip. Award-winning beers, rotating food trucks. ~$35/adult." }
-      ]}
-    ]
-  },
-  {
-    label:"Thursday", date:"June 11",
-    special:"⭐ Jazz at Josiah Henson — FREE outdoor jazz (5–8pm) — last night!",
-    slots:[
-      { time:"Last Morning", multi:true, options:[
-        { id:"d8m1",r:"local",title:"Peerless Rockville — 'Rockville 250' exhibit",type:"History / Culture / Free",cost:0,toddler:false,drive:"5 min",note:"Pictorial exhibit on 250 years of American history as seen through Rockville. Free. Good for history-interested adults while toddler naps." },
-        { id:"d8m2",r:"local",title:"Rock Creek Trail final morning walk",type:"Outdoor / Nature",cost:0,toddler:true,drive:"10 min",note:"Scenic sendoff morning. Stroller-friendly trail along the creek. Easy, relaxed, and free." },
-        { id:"d8m3",r:"nova",title:"Meadowlark Botanical Gardens (Vienna VA)",type:"Outdoor / Gardens",cost:42,toddler:true,drive:"30 min",note:"Beautiful 95-acre botanical garden in Northern Virginia. Korean Bell Garden is stunning. Toddler-paced strolling. ~$7/adult. Peaceful final morning option." }
-      ]},
-      { time:"Farewell Evening", multi:false, options:[
-        { id:"d8e1",r:"local",title:"⭐ Jazz at Josiah Henson (5–8pm) — FREE",type:"Free / Live Jazz / Cultural",cost:20,toddler:true,drive:"20 min",note:"Eric Byrd Trio performing internationally acclaimed jazz on the grounds of the Josiah Henson Museum & Park (Underground Railroad site). Bring blankets and chairs. Food vendors on-site. Perfect farewell evening. Budget ~$20 for food." },
-        { id:"d8e2",r:"local",title:"Farewell dinner — Silver Branch or 7 Locks",type:"Brewery / Dinner",cost:210,toddler:true,drive:"5 min",note:"Send everyone off with a final craft beer dinner. Either brewery makes a great sendoff. ~$35/adult." },
-        { id:"d8e3",r:"balt",title:"Josiah Henson Museum tour (daytime, 10am–4pm)",type:"History / Cultural",cost:30,toddler:false,drive:"20 min",note:"Visit the Underground Railroad museum in the morning before Jazz in the evening. ~$5/adult. Self-guided tour with interactive exhibits." }
-      ]}
-    ]
-  }
+const RL={local:'Local/MoCo',balt:'Baltimore',fred:'Frederick',nova:'Northern VA',party:'Birthday'};
+const RC={local:'r-local',balt:'r-balt',fred:'r-fred',nova:'r-nova',party:'r-party'};
+let DAYS=[
+{id:'d1',label:'Thursday',date:'June 4',isParty:false,special:'✈ UA418 arrives IAD ~7:25 AM — airport pickup',logistics:'Depart Rockville by 6:30 AM to reach IAD by 7:00 AM for UA418 arrival (~7:25 AM). Allow 20 min for bag claim. Back in Rockville by ~9:30 AM.',
+slots:[
+{id:'d1s1',time:'Early Morning — Airport Run',multi:false,options:[
+{id:'d1m1',r:'local',title:'🛬 Pickup UA418 at IAD Dulles',type:'Airport / Travel',cost:0,toddler:false,drive:'35 min',note:'UA418 arrives ~7:25 AM (LAX to IAD). Leave Rockville by 6:30 AM. 20 min bag claim. Back home ~9:30 AM. Leave toddler with other adults.',draggable:false}
+]},
+{id:'d1s2',time:'Late Morning',multi:false,options:[
+{id:'d1a',r:'local',title:'Rockville Town Square — stroll & brunch',type:'Outdoor / Free',cost:60,toddler:true,drive:'0 min',note:'Fountains, open plaza, cafe brunch to welcome everyone. Budget ~$10/adult.',draggable:true},
+{id:'d1b',r:'local',title:'Rock Creek Regional Park — Lake Needwood',type:'Outdoor / Nature',cost:0,toddler:true,drive:'15 min',note:'Easy lake walk, picnic areas. Great toddler leg-stretcher after long flights. Free.',draggable:true}
+]},
+{id:'d1s3',time:'Evening',multi:false,options:[
+{id:'d1c',r:'balt',title:'⭐ WTMD First Thursdays — Canton Waterfront (5:30–10pm)',type:'Free / Outdoor Concert',cost:20,toddler:true,drive:'45 min',note:"Region's largest free outdoor concert. Fantastic Cat headlines. 100+ food vendors. Leave Rockville by 4:30 PM. Budget ~$20 food.",draggable:true},
+{id:'d1d',r:'local',title:'Dinner at 7 Locks Brewing',type:'Brewery / Dinner',cost:210,toddler:true,drive:'5 min',note:'Award-winning taproom. Rotating food trucks. ~$35/adult. Great low-key arrival night.',draggable:true},
+{id:'d1e',r:'local',title:'Silver Branch Beerworks dinner',type:'Brewery / Dinner',cost:180,toddler:true,drive:'5 min',note:'Newest Rockville brewery. Full food menu. Casual family vibe. ~$30/adult.',draggable:true}
+]}
+]},
+{id:'d2',label:'Friday',date:'June 5',isParty:false,special:'⭐ Baltimore Waterfront Week begins (June 5–14)',
+slots:[
+{id:'d2s1',time:'Morning',multi:false,options:[
+{id:'d2a',r:'local',title:'⭐ Brookside Gardens — Butterfly Experience',type:'Nature / Ticketed — BOOK AHEAD',cost:294,toddler:true,drive:'20 min',note:'MUST BOOK ONLINE — no walk-up. Hundreds of live butterflies April–Sept. 6 adults ~$294, toddler FREE under 2.',draggable:true},
+{id:'d2b',r:'balt',title:'⭐ Baltimore Waterfront Week — Inner Harbor Day 1',type:'Festival / Free',cost:30,toddler:true,drive:'45 min',note:'Free live music, kayaking, community events along the harbor. Budget ~$30 for food.',draggable:true},
+{id:'d2c',r:'fred',title:'Downtown Frederick — Carroll Creek Park',type:'Outdoor / Town',cost:40,toddler:true,drive:'45 min',note:'1.5-mile park through historic Frederick. Fountains, public art, outdoor dining. ~$40 for lunch.',draggable:true}
+]},
+{id:'d2s2',time:'Afternoon / Evening',multi:false,options:[
+{id:'d2d',r:'balt',title:'National Aquarium — Baltimore Inner Harbor',type:'Attraction / Ticketed',cost:300,toddler:true,drive:'45 min',note:'6 adults @$49.95 = ~$300. Toddler FREE under 4. Top US aquarium. Book timed entry. No strollers on exhibit route — bring carrier.',draggable:true},
+{id:'d2e',r:'nova',title:'Wolf Trap — Gary Clark Jr. (Sat Jun 6, 7:30pm)',type:'Concert / Outdoor',cost:360,toddler:false,drive:'35 min',note:'Moved from Sat since June 6 is party day. Legendary blues at Filene Center. Picnic on the lawn before. ~$60/adult.',draggable:true},
+{id:'d2f',r:'local',title:'Rockville Town Square dinner',type:'Casual / Local',cost:180,toddler:true,drive:'0 min',note:'Multiple restaurants with outdoor seating. Great low-key evening.',draggable:true}
+]}
+]},
+{id:'d3',label:'Saturday',date:'June 6',isParty:true,special:'🎂 Birthday Party Day!',
+partyDetails:[
+{icon:'🏠',txt:'Venue ideas',note:' — Backyard/home, rented pavilion at Seneca Creek State Park, or park shelter at Cabin John Regional Park (book Montgomery County parks in advance).'},
+{icon:'🎂',txt:'Cake & treats',note:" — Order from Sullivan's Bakery (Rockville), Heidelberg Pastry Shoppe (Arlington), or Sugar Mama's Bakeshop (Frederick). Reserve 1 week ahead."},
+{icon:'🎈',txt:'Toddler activities',note:' — Bubble station, sensory bins, sandbox, sprinkler play. Keep it simple and outdoor-focused for a 2-year-old.'},
+{icon:'🍕',txt:'Food & catering',note:' — Catered pizza, BBQ from Hideaway BBQ, or potluck-style. Budget ~$25–40/adult for catered option.'},
+{icon:'🎵',txt:'Entertainment',note:' — Lawn games (cornhole, bocce, frisbee), water table for toddler. Optionally hire face painter/balloon artist (~$150–200 for 2 hrs).'},
+{icon:'📸',txt:'Golden hour photos',note:' — ~7:30–8pm. Consider 1-hr session with local photographer (~$200–300).'}
+],
+slots:[
+{id:'d3s1',time:'Optional morning outing before party setup',multi:false,options:[
+{id:'d3a',r:'local',title:'Wheaton Regional Park — Train & Carousel (moved from Sat)',type:'Family / Ticketed',cost:42,toddler:true,drive:'20 min',note:'Mini train $4 + carousel $4/ride. Under 2 FREE. Opens 9:30 AM. Good before party prep begins.',draggable:true},
+{id:'d3b',r:'local',title:'Cabin John Regional Park — morning walk',type:'Outdoor / Nature',cost:0,toddler:true,drive:'10 min',note:'Easy trails, great playground. Free. Low-key morning before party setup.',draggable:true}
+]}
+]},
+{id:'d4',label:'Sunday',date:'June 7',isParty:false,special:'⭐ Rockville Pride 2–5pm + Strawberry Fest Frederick 11am–2pm',
+slots:[
+{id:'d4s1',time:'Morning',multi:false,options:[
+{id:'d4a',r:'fred',title:'⭐ Strawberry Fest — Buckeystown, Frederick (11am–2pm)',type:'Festival / Family',cost:20,toddler:true,drive:'50 min',note:'Live music, games, crafts, outdoor fun at Buckeystown UMC. Toddler-perfect. ~$20 food.',draggable:true},
+{id:'d4b',r:'local',title:'Seneca Creek State Park — lake trails + picnic',type:'Outdoor / Nature',cost:0,toddler:true,drive:'15 min',note:'Flat lakeside trails, gorgeous in June. Stroller-friendly. Bring a picnic. Free.',draggable:true},
+{id:'d4c',r:'nova',title:'Great Falls National Park (VA side)',type:'Outdoor / Scenic',cost:60,toddler:true,drive:'30 min',note:'Stunning Potomac gorge views. $20/car. Stroller-friendly overlook trails.',draggable:true},
+{id:'d4d',r:'local',title:'Wheaton Regional Park — Train & Carousel',type:'Family / Ticketed',cost:42,toddler:true,drive:'20 min',note:'If not done Saturday. Mini train + carousel. Under 2 FREE. Opens 9:30 AM weekends.',draggable:true}
+]},
+{id:'d4s2',time:'Afternoon',multi:false,options:[
+{id:'d4e',r:'local',title:'⭐ Rockville Pride (2–5pm) @ Town Square',type:'Free / Community Event',cost:0,toddler:true,drive:'0 min',note:'10th anniversary. Family activities, live performances. Completely free.',draggable:true},
+{id:'d4f',r:'balt',title:"Port Discovery Children's Museum — Baltimore",type:'Museum / Kids',cost:150,toddler:true,drive:'45 min',note:'3 floors hands-on exhibits, toddler zones, play kitchen. ~$25/adult, under 1 free.',draggable:true},
+{id:'d4g',r:'balt',title:'Baltimore Inner Harbor + Fells Point walk',type:'Free / Outdoor',cost:40,toddler:true,drive:'45 min',note:'Free Inner Harbor promenade, historic Fells Point. Budget ~$40 snacks.',draggable:true}
+]}
+]},
+{id:'d5',label:'Monday',date:'June 8',isParty:false,special:'✈ UA2276 IAD→LAX departs ~6:00 PM — drop-off day',logistics:'UA2276 IAD departs ~6:00 PM. Leave Rockville by 3:00 PM to arrive IAD by 4:00 PM (2 hrs before departure). Plan morning/afternoon activities that wrap by 2:30 PM.',
+slots:[
+{id:'d5s0',time:'Afternoon — Airport Drop-off',multi:false,options:[
+{id:'d5drop',r:'local',title:'✈ Drop-off: UA2276 at IAD Dulles (~6:00 PM)',type:'Travel / Logistics',cost:0,toddler:false,drive:'35 min',note:'UA2276 IAD departs ~6:00 PM to LAX. Leave Rockville by 3:00 PM. Arrive IAD by 4:00 PM (2 hrs early). United check-in via Area 4. Allow extra time for bag check if applicable.',draggable:false}
+]},
+{id:'d5s1',time:'Morning',multi:false,options:[
+{id:'d5a',r:'local',title:'⭐ Brookside Gardens — Butterfly Experience (if not Fri)',type:'Nature / Ticketed — BOOK AHEAD',cost:294,toddler:true,drive:'20 min',note:'Book online first. 6 adults ~$294, toddler FREE. Follow with free garden stroll.',draggable:true},
+{id:'d5b',r:'nova',title:'Udvar-Hazy Air & Space Museum (Chantilly VA)',type:'Museum / Free',cost:30,toddler:true,drive:'40 min',note:'Space Shuttle Discovery, SR-71 Blackbird. FREE entry. ~$30 food + $20 parking.',draggable:true},
+{id:'d5c',r:'fred',title:'Catoctin Mountain Park — family hike',type:'Outdoor / Hiking',cost:0,toddler:true,drive:'60 min',note:'Shaded Blue Blazes loop, scenic waterfall. Free. Use carrier for toddler on rocky sections.',draggable:true}
+]},
+{id:'d5s2',time:'Afternoon',multi:false,options:[
+{id:'d5d',r:'local',title:'Kids Ground indoor play (Rockville)',type:'Indoor / Toddler Play',cost:80,toddler:true,drive:'5 min',note:'5,000 sq ft play space. Ball pit, play kitchen, climbing dome. Great afternoon wind-down.',draggable:true},
+{id:'d5e',r:'nova',title:'Reston Town Center stroll + lunch',type:'Outdoor / Dining',cost:180,toddler:true,drive:'30 min',note:'Walkable outdoor town center. Fountain plaza great for toddlers. ~$30/adult.',draggable:true},
+{id:'d5f',r:'balt',title:'Maryland Zoo in Baltimore',type:'Zoo / Outdoor',cost:198,toddler:true,drive:'45 min',note:'150-year anniversary zoo. 1,500+ animals. Red panda habitat. ~$33/adult. Under 2 FREE.',draggable:true}
+]}
+]},
+{id:'d6',label:'Tuesday',date:'June 9',isParty:false,special:'⭐ Free Brookside Gardens Twilight Concert 6:30–8pm',
+slots:[
+{id:'d6s1',time:'Morning / Day',multi:false,options:[
+{id:'d6a',r:'balt',title:'National Aquarium — Baltimore (if not yet visited)',type:'Attraction / Ticketed',cost:300,toddler:true,drive:'45 min',note:'Best on weekdays — less crowded. 6 adults ~$300, toddler FREE. Book timed entry online.',draggable:true},
+{id:'d6b',r:'fred',title:'Frederick Keys minor league baseball game',type:'Sports / Family',cost:90,toddler:true,drive:'45 min',note:'FNB Field. Perfect for a short toddler attention span. ~$15/adult, toddlers free.',draggable:true},
+{id:'d6c',r:'local',title:'Sugarloaf Mountain hike',type:'Outdoor / Hiking',cost:0,toddler:true,drive:'35 min',note:'Lower loop shaded trail. Doable with toddler in carrier. Free.',draggable:true},
+{id:'d6d',r:'local',title:'Cabin John Regional Park + playground',type:'Outdoor / Family',cost:0,toddler:true,drive:'10 min',note:'Large playground, nature center, easy trails. Free.',draggable:true}
+]},
+{id:'d6s2',time:'Evening — Free Concert!',multi:false,options:[
+{id:'d6e',r:'local',title:'⭐ Brookside Gardens Twilight Concert (6:30–8pm)',type:'Free / Music / Outdoor',cost:30,toddler:true,drive:'20 min',note:'Free Tuesday concert. Bring blankets and picnic. Food trucks on site. Magical at dusk.',draggable:true},
+{id:'d6f',r:'local',title:'Rockville Town Square outdoor dinner',type:'Casual / Local',cost:180,toddler:true,drive:'0 min',note:'Multiple restaurants with outdoor patios. Good fallback.',draggable:true}
+]}
+]},
+{id:'d7',label:'Wednesday',date:'June 10',isParty:false,
+slots:[
+{id:'d7s1',time:'Full Day — choose your adventure',multi:false,options:[
+{id:'d7a',r:'balt',title:'Baltimore full day — Aquarium + Harbor + Fells Point',type:'Full Day / City',cost:360,toddler:true,drive:'45 min',note:'National Aquarium ~$300 + $60 meals. Walk Inner Harbor, lunch at Fells Point.',draggable:true},
+{id:'d7b',r:'nova',title:'Old Town Alexandria + Potomac waterfront',type:'Outdoor / History',cost:100,toddler:true,drive:'40 min',note:'King Street promenade, free Torpedo Factory Art Center, waterfront park. ~$100 lunch.',draggable:true},
+{id:'d7c',r:'fred',title:'Downtown Frederick full day',type:'Town / Outdoor',cost:150,toddler:true,drive:'45 min',note:'Market Street boutiques, Carroll Creek stroll, outdoor patio lunch. ~$150.',draggable:true},
+{id:'d7d',r:'nova',title:'Shenandoah National Park — Skyline Drive',type:'Outdoor / Scenic',cost:50,toddler:true,drive:'90 min',note:'Drive Skyline Drive, stop at Dickey Ridge overlook. $35/car. Stunning views.',draggable:true}
+]},
+{id:'d7s2',time:'Evening',multi:false,options:[
+{id:'d7e',r:'local',title:'Brookeville Beer Farm — farm brewery dinner',type:'Brewery / Outdoor',cost:210,toddler:true,drive:'30 min',note:'Working farm brewery. Large outdoor area, kids welcome. Pizza + apps. ~$35/adult.',draggable:true},
+{id:'d7f',r:'local',title:'⭐ Silo Falls — destination dinner',type:'Upscale / Scenic',cost:300,toddler:false,drive:'30 min',note:'Destination restaurant on scenic byway. Reserve ahead. ~$50/adult.',draggable:true},
+{id:'d7g',r:'local',title:'7 Locks Brewing + food trucks',type:'Brewery / Casual',cost:210,toddler:true,drive:'5 min',note:'Reliable crowd-pleaser. ~$35/adult.',draggable:true}
+]}
+]},
+{id:'d8',label:'Thursday',date:'June 11',isParty:false,special:'⭐ Jazz at Josiah Henson FREE 5–8pm  ✈ B6 1354 DCA 4:59pm',logistics:'DROP-OFF: B6 1354 DCA departs 4:59 PM — leave Rockville by 2:45 PM to arrive DCA by 3:30 PM (90 min early). Jazz at Josiah Henson (5–8pm) works perfectly for those staying behind after the DCA drop-off.',
+slots:[
+{id:'d8s1',time:'Last Morning (select multiple)',multi:true,options:[
+{id:'d8a',r:'local',title:'Rock Creek Trail final morning walk',type:'Outdoor / Nature',cost:0,toddler:true,drive:'10 min',note:'Scenic stroller-friendly sendoff walk along the creek. Easy and free.',draggable:true},
+{id:'d8b',r:'nova',title:'Meadowlark Botanical Gardens (Vienna VA)',type:'Outdoor / Gardens',cost:42,toddler:true,drive:'30 min',note:'95-acre botanical garden. Korean Bell Garden stunning. ~$7/adult.',draggable:true},
+{id:'d8c',r:'local',title:"Peerless Rockville — 'Rockville 250' exhibit",type:'History / Culture / Free',cost:0,toddler:false,drive:'5 min',note:'250 years of American history through Rockville lens. Free.',draggable:true},
+{id:'d8d',r:'local',title:'Josiah Henson Museum daytime tour (10am–4pm)',type:'History / Cultural',cost:30,toddler:false,drive:'20 min',note:'Underground Railroad museum. ~$5/adult. Pair with Jazz evening if logistics allow.',draggable:true}
+]},
+{id:'d8s2',time:'Afternoon — Airport Drop-off (B6 1354 DCA)',multi:false,options:[
+{id:'d8e',r:'local',title:'✈ Drop-off: B6 1354 at DCA Reagan',type:'Travel / Logistics',cost:0,toddler:false,drive:'45 min',note:'B6 1354 DCA departs 4:59 PM to BOS. Leave Rockville by 2:45 PM. Arrive DCA by 3:30 PM (90 min early). JetBlue Terminal 2 at Reagan National.',draggable:false}
+]},
+{id:'d8s3',time:'Evening Farewell (those remaining)',multi:false,options:[
+{id:'d8f',r:'local',title:'⭐ Jazz at Josiah Henson (5–8pm) — FREE',type:'Free / Live Jazz / Cultural',cost:20,toddler:true,drive:'20 min',note:'Eric Byrd Trio. Free outdoor jazz on Underground Railroad grounds. Bring blankets. Food vendors on-site. ~$20 food budget.',draggable:true},
+{id:'d8g',r:'local',title:'Farewell dinner — Silver Branch or 7 Locks',type:'Brewery / Dinner',cost:210,toddler:true,drive:'5 min',note:'Send everyone off with a craft beer dinner. ~$35/adult.',draggable:true}
+]}
+]}
 ];
-
-const REGION_LABELS = { local:'Local / MoCo', balt:'Baltimore', fred:'Frederick', nova:'Northern VA' };
-const REGION_CLASS  = { local:'r-local', balt:'r-balt', fred:'r-fred', nova:'r-nova' };
-
-let activeFilter = 'all';
-const selections = {};
-
-function setFilter(r, el){
-  activeFilter = r;
-  document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
-  el.classList.add('active');
-  render();
-}
+let activeFilter='all';
+const selections={};
+let dragCard=null;
 
 function render(){
-  const container = document.getElementById('itinerary');
-  container.innerHTML = '';
-  DAYS.forEach(day => {
-    let hasVisible = false;
-    const slotHTMLs = [];
-    day.slots.forEach(slot => {
-      const opts = slot.options.filter(o => activeFilter === 'all' || o.r === activeFilter);
-      if(!opts.length) return;
-      hasVisible = true;
-      const note = slot.multi ? ' (select multiple)' : ' (pick one)';
-      let cards = opts.map(opt => {
-        const sel = !!selections[opt.id];
-        return `
-<div class="opt-card${sel?' selected':''}" onclick="toggle('${opt.id}','${slot.multi}','${day.label}',${JSON.stringify(slot.options.map(o=>o.id))})" role="button" aria-pressed="${sel}" tabindex="0">
-  <div class="check-icon" aria-hidden="true"><svg viewBox="0 0 12 10"><polyline points="1,5 4,8.5 11,1"/></svg></div>
-  <div class="opt-tags">
-    <span class="rtag ${REGION_CLASS[opt.r]}">${REGION_LABELS[opt.r]}</span>
-    <span class="type-tag">${opt.type}</span>
-  </div>
-  <div class="opt-title">${opt.title}</div>
-  <div class="opt-note">${opt.note}</div>
-  <div class="opt-footer">
-    <span class="cost-chip${opt.cost===0?' cost-free':''}">${opt.cost===0?'Free ✓':'~$'+opt.cost.toLocaleString()+' total'}</span>
-    <span class="drive-chip">🚗 ${opt.drive}</span>
-    ${opt.toddler?'<span class="toddler-chip">🧒 toddler friendly</span>':''}
-  </div>
-</div>`;
-      }).join('');
-      slotHTMLs.push(`<div class="slot"><div class="slot-label">${slot.time}${note}</div><div class="options-grid">${cards}</div></div>`);
+  const cont=document.getElementById('itin');
+  cont.innerHTML='';
+  DAYS.forEach(day=>{
+    const sec=document.createElement('div');
+    sec.className='day-section'+(day.isParty?' party-day':'');
+    sec.dataset.dayId=day.id;
+    sec.addEventListener('dragover',e=>{e.preventDefault();sec.classList.add('drag-over');});
+    sec.addEventListener('dragleave',e=>{if(!sec.contains(e.relatedTarget))sec.classList.remove('drag-over');});
+    sec.addEventListener('drop',e=>{e.preventDefault();sec.classList.remove('drag-over');if(!dragCard)return;dropOnDay(day.id,null);});
+    let badge='';
+    if(day.isParty) badge=`<span class="sbadge pbadge">🎂 Birthday Party Day!</span>`;
+    else if(day.special) badge=`<span class="sbadge">${day.special}</span>`;
+    sec.innerHTML=`<div class="day-hdr"><span class="day-name">${day.label}</span><span class="day-date">${day.date}</span>${badge}</div>`;
+    if(day.logistics){const lb=document.createElement('div');lb.className='lbar';lb.innerHTML='✈ '+day.logistics;sec.appendChild(lb);}
+    if(day.isParty&&day.partyDetails){
+      const ps=document.createElement('div');ps.className='party-sec';
+      ps.innerHTML='<h3>🎉 Party Planning Checklist</h3>'+day.partyDetails.map(p=>`<div class="pi"><span class="pi-ico">${p.icon}</span><div class="pi-txt"><strong>${p.txt}</strong>${p.note}</div></div>`).join('');
+      sec.appendChild(ps);
+    }
+    day.slots.forEach(slot=>{
+      const vis=slot.options.filter(o=>activeFilter==='all'||o.r===activeFilter||selections[o.id]);
+      if(!vis.length) return;
+      const sw=document.createElement('div');sw.className='slot-wrap';
+      const sd=document.createElement('div');sd.className='slot';sd.dataset.slotId=slot.id;
+      sd.addEventListener('dragover',e=>{e.preventDefault();sd.style.outline='2px dashed var(--accent)';});
+      sd.addEventListener('dragleave',()=>{sd.style.outline='';});
+      sd.addEventListener('drop',e=>{e.preventDefault();sd.style.outline='';if(!dragCard)return;dropOnDay(day.id,slot.id);});
+      const mt=slot.multi?'<span class="mtag">select multiple</span>':'<span class="mtag">pick one</span>';
+      sd.innerHTML=`<div class="slot-lbl">${slot.time} ${mt}</div>`;
+      const grid=document.createElement('div');grid.className='opts-grid';
+      vis.forEach(opt=>{
+        const sel=!!selections[opt.id];
+        const card=document.createElement('div');
+        card.className='opt-card'+(sel?' selected':'');
+        if(opt.draggable!==false){
+          card.setAttribute('draggable','true');
+          card.addEventListener('dragstart',e=>{dragCard={opt,fromDayId:day.id,fromSlotId:slot.id};card.classList.add('dragging');e.dataTransfer.effectAllowed='move';});
+          card.addEventListener('dragend',()=>{card.classList.remove('dragging');dragCard=null;});
+        }
+        const dh=opt.draggable!==false?'<div class="dh" title="Drag to another day">⠿</div>':'';
+        card.innerHTML=`<div class="chk"><svg viewBox="0 0 12 10"><polyline points="1,5 4,8.5 11,1"/></svg></div>${dh}<div class="opt-tags"><span class="rtag ${RC[opt.r]}">${RL[opt.r]}</span><span class="opt-type">${opt.type}</span></div><div class="opt-title">${opt.title}</div><div class="opt-note">${opt.note}</div><div class="opt-ft"><span class="cost${opt.cost===0?' cost-free':''}">${opt.cost===0?'Free ✓':'~$'+opt.cost.toLocaleString()}</span><span class="drive">🚗 ${opt.drive}</span>${opt.toddler?'<span class="ttag">🧒 toddler ✓</span>':''}</div>`;
+        card.addEventListener('click',()=>toggleOpt(opt.id,slot,day));
+        grid.appendChild(card);
+      });
+      sd.appendChild(grid);sw.appendChild(sd);sec.appendChild(sw);
     });
-    if(!hasVisible) return;
-    const specialHTML = day.special
-      ? `<span class="special-badge">${day.special}</span>` : '';
-    const sec = document.createElement('div');
-    sec.className = 'day-section';
-    sec.innerHTML = `
-<div class="day-header">
-  <span class="day-name">${day.label}</span>
-  <span class="day-date">${day.date}</span>
-  ${specialHTML}
-</div>
-${slotHTMLs.join('')}`;
-    container.appendChild(sec);
-  });
-
-  // keyboard support
-  container.querySelectorAll('.opt-card').forEach(card => {
-    card.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); card.click(); }});
+    renderCustomSlot(day, sec);
+    cont.appendChild(sec);
   });
 }
 
-function toggle(id, multi, dayLabel, siblingIds){
-  const opt = findOpt(id);
-  if(!opt) return;
-  if(multi === 'true'){
-    if(selections[id]) delete selections[id];
-    else selections[id] = { ...opt, dayLabel };
-  } else {
-    siblingIds.forEach(sid => { if(sid !== id) delete selections[sid]; });
-    if(selections[id]) delete selections[id];
-    else selections[id] = { ...opt, dayLabel };
+function renderCustomSlot(day, sec) {
+  const customs = customActivities[day.id] || [];
+  const wrap = document.createElement('div');
+  wrap.className = 'custom-slot';
+
+  const addedHtml = customs.map((c,i) => {
+    const sel = !!customSelections[c.id];
+    return `<div class="custom-item${sel?' selected-custom':''}">
+      <span class="custom-item-title" onclick="toggleCustom('${day.id}',${i})" title="Click to toggle selection">${sel ? '✓ ' : ''}${c.title}</span>
+      <span class="custom-item-cost">${c.cost > 0 ? '~$'+c.cost : 'Free'}</span>
+      <button class="custom-item-del" onclick="removeCustom('${day.id}',${i})" title="Remove">×</button>
+    </div>`;
+  }).join('');
+
+  wrap.innerHTML = `<div class="custom-card">
+    <div class="custom-card-lbl">✏️ Custom activity <span>add your own</span></div>
+    <div class="custom-fields">
+      <input type="text" id="ctitle-${day.id}" placeholder="Activity name (e.g. Cousin's backyard cookout)" />
+      <input type="number" id="ccost-${day.id}" placeholder="$ cost" min="0" step="5" />
+      <button class="custom-add-btn" onclick="addCustom('${day.id}','${day.label}','${day.date}')">+ Add</button>
+    </div>
+    ${customs.length > 0 ? `<div class="custom-added">${addedHtml}</div>` : ''}
+  </div>`;
+
+  // Allow Enter key to add
+  wrap.querySelector(`#ctitle-${day.id}`).addEventListener('keydown', e => {
+    if (e.key === 'Enter') addCustom(day.id, day.label, day.date);
+  });
+
+  sec.appendChild(wrap);
+}
+
+function toggleOpt(id,slot,day){
+  const opt=findOpt(id);if(!opt)return;
+  if(slot.multi){
+    if(selections[id])delete selections[id];
+    else selections[id]={...opt,dayLabel:day.label,dayDate:day.date};
+  }else{
+    slot.options.forEach(o=>{if(o.id!==id)delete selections[o.id];});
+    if(selections[id])delete selections[id];
+    else selections[id]={...opt,dayLabel:day.label,dayDate:day.date};
   }
-  render();
-  updateBar();
+  render();updateBar();
 }
 
 function findOpt(id){
-  for(const day of DAYS)
-    for(const slot of day.slots)
-      for(const opt of slot.options)
-        if(opt.id === id) return opt;
+  for(const day of DAYS)for(const slot of day.slots)for(const opt of slot.options)if(opt.id===id)return opt;
   return null;
 }
 
-function updateBar(){
-  const keys = Object.keys(selections);
-  const total = keys.reduce((s,k) => s + selections[k].cost, 0);
-  document.getElementById('sel-count').textContent = keys.length;
-  document.getElementById('total-display').textContent = '$' + total.toLocaleString();
+function dropOnDay(toDayId,toSlotId){
+  if(!dragCard)return;
+  const{opt,fromDayId,fromSlotId}=dragCard;
+  if(fromDayId===toDayId&&fromSlotId===toSlotId)return;
+  const srcDay=DAYS.find(d=>d.id===fromDayId);
+  const srcSlot=srcDay.slots.find(s=>s.id===fromSlotId);
+  srcSlot.options=srcSlot.options.filter(o=>o.id!==opt.id);
+  const tgtDay=DAYS.find(d=>d.id===toDayId);
+  const tgtSlot=toSlotId?tgtDay.slots.find(s=>s.id===toSlotId):(tgtDay.slots.length>0?tgtDay.slots[0]:null);
+  if(tgtSlot&&!tgtSlot.options.find(o=>o.id===opt.id))tgtSlot.options.push(opt);
+  if(selections[opt.id]){selections[opt.id].dayLabel=tgtDay.label;selections[opt.id].dayDate=tgtDay.date;}
+  dragCard=null;render();updateBar();
 }
 
-function clearAll(){
-  Object.keys(selections).forEach(k => delete selections[k]);
+// ── CUSTOM ACTIVITIES ─────────────────────────────────────────────────
+const customActivities = {}; // dayId -> [{id, title, cost, dayLabel, dayDate}]
+const customSelections = {}; // customId -> activity obj
+let customCounter = 0;
+
+function addCustom(dayId, dayLabel, dayDate) {
+  const titleEl = document.getElementById('ctitle-' + dayId);
+  const costEl  = document.getElementById('ccost-'  + dayId);
+  const title = titleEl.value.trim();
+  if (!title) { titleEl.focus(); titleEl.style.borderColor='#C4622D'; return; }
+  titleEl.style.borderColor='';
+  const cost = parseInt(costEl.value) || 0;
+  const id = 'custom_' + (++customCounter);
+  if (!customActivities[dayId]) customActivities[dayId] = [];
+  const activity = { id, title, cost, dayLabel, dayDate, r:'local', custom:true };
+  customActivities[dayId].push(activity);
+  // Auto-select it
+  customSelections[id] = activity;
+  titleEl.value = '';
+  costEl.value = '';
   render();
   updateBar();
 }
 
-function openModal(){
-  const body = document.getElementById('modal-body');
-  const keys = Object.keys(selections);
-  if(!keys.length){
-    body.innerHTML = '<p class="empty-msg">No activities selected yet. Close this and click on options to build your agenda.</p>';
-    document.getElementById('modal').classList.add('open');
-    return;
-  }
-  let html = '';
-  let total = 0;
-  DAYS.forEach(day => {
-    const items = [];
-    day.slots.forEach(slot => {
-      slot.options.forEach(opt => {
-        if(selections[opt.id]) items.push(opt);
-      });
-    });
-    if(!items.length) return;
-    html += `<div class="agenda-day"><div class="agenda-day-label">${day.label}, ${day.date}</div>`;
-    items.forEach(item => {
-      total += item.cost;
-      html += `<div class="agenda-item">
-        <span class="agenda-rtag rtag ${REGION_CLASS[item.r]}">${REGION_LABELS[item.r]}</span>
-        <div class="agenda-title">${item.title}</div>
-        <div class="agenda-cost">${item.cost===0?'Free':'~$'+item.cost}</div>
-      </div>`;
-    });
-    html += '</div>';
-  });
-  html += `<div class="agenda-total"><span>Estimated total (6 adults + toddler)</span><strong>$${total.toLocaleString()}</strong></div>`;
-  body.innerHTML = html;
-  document.getElementById('modal').classList.add('open');
+function removeCustom(dayId, idx) {
+  const act = customActivities[dayId][idx];
+  if (act && customSelections[act.id]) delete customSelections[act.id];
+  customActivities[dayId].splice(idx, 1);
+  render();
+  updateBar();
 }
 
-function closeModal(){ document.getElementById('modal').classList.remove('open'); }
-function closeModalOutside(e){ if(e.target === document.getElementById('modal')) closeModal(); }
+function toggleCustom(dayId, idx) {
+  const act = customActivities[dayId][idx];
+  if (!act) return;
+  if (customSelections[act.id]) delete customSelections[act.id];
+  else customSelections[act.id] = act;
+  render();
+  updateBar();
+}
 
-render();
-updateBar();
+function setFilter(r,el){activeFilter=r;document.querySelectorAll('.ftab').forEach(t=>t.classList.remove('active'));el.classList.add('active');render();}
+
+function updateBar(){
+  const k1=Object.keys(selections);
+  const k2=Object.keys(customSelections);
+  const total=k1.reduce((s,i)=>s+selections[i].cost,0)+k2.reduce((s,i)=>s+customSelections[i].cost,0);
+  document.getElementById('sc').textContent=k1.length+k2.length;
+  document.getElementById('ta').textContent='$'+total.toLocaleString();
+}
+
+function clearAll(){
+  Object.keys(selections).forEach(k=>delete selections[k]);
+  Object.keys(customSelections).forEach(k=>delete customSelections[k]);
+  render();updateBar();
+}
+
+function openModal(){
+  const body=document.getElementById('mbody');
+  const k1=Object.keys(selections), k2=Object.keys(customSelections);
+  if(!k1.length&&!k2.length){body.innerHTML='<p class="emsg">No activities selected yet. Close and click options to build your agenda.</p>';}
+  else{
+    let html='',total=0;
+    DAYS.forEach(day=>{
+      const items=[];
+      day.slots.forEach(slot=>slot.options.forEach(opt=>{if(selections[opt.id])items.push(opt);}));
+      // Add custom selections for this day
+      (customActivities[day.id]||[]).forEach(c=>{if(customSelections[c.id])items.push({...c,r:'local',custom:true});});
+      if(!items.length)return;
+      html+=`<div class="ag-day"><div class="ag-dlbl">${day.label}, ${day.date}</div>`;
+      items.forEach(it=>{
+        total+=it.cost;
+        const label=it.custom?'Custom':''+RL[it.r];
+        html+=`<div class="ag-item"><span class="rtag ${it.custom?'':''+RC[it.r]}" style="flex-shrink:0;margin-top:2px;${it.custom?'background:#E8E2D9;color:#5A5450':''}">${label}</span><div class="ag-title">${it.title}</div><div class="ag-cost">${it.cost===0?'Free':'~$'+it.cost}</div></div>`;
+      });
+      html+='</div>';
+    });
+    html+=`<div class="ag-tot"><span>Estimated total (6 adults + toddler)</span><strong>$${total.toLocaleString()}</strong></div>`;
+    body.innerHTML=html;
+  }
+  document.getElementById('modal').classList.add('open');
+}
+function closeModal(){document.getElementById('modal').classList.remove('open');}
+function closeOut(e){if(e.target===document.getElementById('modal'))closeModal();}
+render();updateBar();
 </script>
 </body>
 </html>
